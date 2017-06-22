@@ -1,0 +1,27 @@
+---
+server:
+  port: 2000
+ 
+spring:
+  profiles: ha1
+  application:
+    name: sc-eureka-ha-provider
+    
+eureka:
+  client:
+    service-url:
+      defaultZone: http://peer1:1000/eureka/,http://peer2:1100/eureka/
+
+---
+server:
+  port: 2100
+ 
+spring:
+  profiles: ha2
+  application:
+    name: sc-eureka-ha-provider
+    
+eureka:
+  client:
+    service-url:
+      defaultZone: http://peer1:1000/eureka/,http://peer1:1000/eureka/  

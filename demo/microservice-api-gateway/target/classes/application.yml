@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: gateway-service-zuul
+server:
+  port: 4000
+
+zuul:
+  routes:
+    SC-EUREKA-HA-PROVIDER: /p1/**
+    SC-EUREKA-HA-PROVIDER2: /p2/**
+
+eureka:
+  client:
+   serviceUrl:
+    defaultZone: http://localhost:1000/eureka/

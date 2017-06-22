@@ -1,0 +1,31 @@
+---
+spring:
+  profiles: peer1                                                     # 指定profile=peer1
+  application:
+          name: spring-cloud-eureka-HA                              
+server:
+  port: 1000
+eureka:
+  server: 
+    enable-self-preservation: false 
+  instance:
+    hostname: peer1                               # 指定当profile=peer1时，主机名
+  client:
+    serviceUrl:
+      defaultZone: http://peer2:8762/eureka/      # 将自己注册到peer2这个Eureka上面去
+
+---
+spring:
+  profiles: peer2
+  application:
+          name: spring-cloud-eureka-HA  
+server:
+  port: 1100
+eureka:
+  server: 
+    enable-self-preservation: false 
+  instance:
+    hostname: peer2
+  client:
+    serviceUrl:
+      defaultZone: http://peer1:8761/eureka/      
