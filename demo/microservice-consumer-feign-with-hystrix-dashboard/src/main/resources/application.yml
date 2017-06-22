@@ -3,7 +3,7 @@ server:
  
 spring:
   application:
-    name: sc-eureka-consumer
+    name: sc-feign-consumer
     
 eureka:
   client:
